@@ -21,7 +21,8 @@
       - javascript: jshint
         - please install Node.js
           - $ npm install -g jshint
-      - python : 何にしようかな
+      - python : flake8
+        - pip install flake8
       
   ************************************************************  
 
