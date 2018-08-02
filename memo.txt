@@ -17,5 +17,10 @@
   * installed plugin
   ************************************************************  
   - ale
-    - Node.jsを入れて、lintってやつを入れていかないといけない
+    - lint ってやつを入れていかないといけない
+      - javascript: jshint
+        - please install Node.js
+          - $ npm install -g jshint
+      - python : 何にしようかな
+      
   ************************************************************  
