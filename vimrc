@@ -1,7 +1,15 @@
+" vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 call plug#end()
 
+" ale
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+\  'javascript': ['jshint'],
+\}
 
 " file
 set fenc=utf-8
@@ -35,6 +43,7 @@ set hlsearch
 " other
 set title
 set number
+set noruler
 set cursorline
 set clipboard=unnamed
 
@@ -44,15 +53,20 @@ set visualbell
 set showmatch
 set wildmode=list:longest
 
-set statusline+=%F
-set statusline+=%m
-set statusline+=%r
+
+set statusline=%f               " filename relative to current $PWD
+set statusline+=%h              " help file flag
+set statusline+=%m              " modified flag
+set statusline+=%r              " readonly flag
+set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
+set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
 set statusline+=%=
+
 set statusline+=[line=%l/%L]
 set laststatus=2
 
 syntax enable
-"colorscheme iceberg
+"colorscheme slate
 
 set background=dark
 colorscheme hybrid
