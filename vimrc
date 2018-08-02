@@ -66,7 +66,7 @@ set statusline+=[line=%l/%L]
 set laststatus=2
 
 syntax enable
-"colorscheme iceberg
+"colorscheme slate
 
 set background=dark
 colorscheme hybrid
