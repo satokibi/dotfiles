@@ -1,9 +1,10 @@
-" vim-plug
+" vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 call plug#end()
+" }}}
 
-" ale
+" ale {{{
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_sign_column_always = 1
@@ -11,8 +12,18 @@ let g:ale_linters = {
 \  'javascript': ['jshint'],
 \  'python': ['flake8'],
 \}
+" }}}
 
-" file
+" netrw.vim {{{
+" tree view
+let g:netrw_liststyle = 3
+" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+let g:netrw_altv = 1
+" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+let g:netrw_alto = 1
+" }}}
+
+" file {{{
 set fenc=utf-8
 set encoding=utf-8
 scriptencoding utf-8
@@ -29,19 +40,23 @@ set ambiwidth=double
 
 filetype on
 filetype indent on
+" }}}
 
-" tab indent
+
+" tab indent {{{
 set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+" }}}
 
-" search
+" search {{{
 set incsearch
 set hlsearch
+" }}}
 
 
-" other
+" other {{{
 set title
 set number
 set noruler
@@ -65,9 +80,12 @@ set statusline+=%=
 
 set statusline+=[line=%l/%L]
 set laststatus=2
+" }}}
 
+" scheme {{{
 syntax enable
 "colorscheme slate
 
 set background=dark
 colorscheme hybrid
+" }}}
