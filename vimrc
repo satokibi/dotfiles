@@ -1,6 +1,7 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
+Plug 'Shougo/neocomplcache.vim'
 call plug#end()
 " }}}
 
@@ -12,6 +13,36 @@ let g:ale_linters = {
 \  'javascript': ['jshint'],
 \  'python': ['flake8'],
 \}
+" }}}
+
+" neocomplcache.vim {{{
+" 起動時に有効
+let g:neocomplcache_enable_at_startup = 1
+" snippet ファイルの保存先
+let g:neocomplcache_snippets_dir='~/.vim/snippets'
+" dictionary
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+\ }
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" 補完候補が表示されている場合は確定。そうでない場合は改行
+inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " }}}
 
 " netrw.vim {{{

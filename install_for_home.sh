@@ -19,3 +19,5 @@ mv ~/.vim $vim_org
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vimrc ~/.vimrc
 # }}} 
+
+ln -sf ~/dotfiles/jshintrc ~/.jshintrc
