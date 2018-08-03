@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0rp/ale'
 Plug 'Shougo/neocomplcache.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 " }}}
 
@@ -44,6 +45,13 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " 補完候補が表示されている場合は確定。そうでない場合は改行
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
+" }}}
+
+" vim-indent-guides {{{
+let g:indent_guides_enable_on_vim_startup = 0
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 " }}}
 
 " netrw.vim {{{
