@@ -1,10 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/yuya'
-let g:netrw_dirhist_2='/Users/yuya/dotfiles'
-let g:netrw_dirhist_3='/Users/yuya'
-let g:netrw_dirhist_4='/Users/yuya/workspace'
-let g:netrw_dirhist_5='/Users/yuya/workspace/c'
-let g:netrw_dirhist_6='/Users/yuya/workspace'
-let g:netrw_dirhist_7='/Users/yuya'
-let g:netrw_dirhist_8='/Users/yuya/dotfiles'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/yuya/dotfiles'
+let g:netrw_dirhist_2='/Users/yuya'
+let g:netrw_dirhist_3='/Users/yuya/dotfiles/.git'

@@ -51,6 +51,17 @@ inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " indentLine {{{
 let g:indentLine_color_term = 244
 let g:indentLine_char = '¦'
+" }}}
+
+" vim-quickrun {{{
+let g:quickrun_config = {
+\   '_' : {
+\       'outputter/buffer/split' : ':botright 8sp',
+\       'outputter/buffer/close_on_empty' : 1,
+\       'hook/time/enable' : 1,
+\   }
+\}
+" }}}
 
 " netrw.vim {{{
 " tree view
@@ -59,6 +70,17 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 let g:netrw_alto = 1
+" }}}
+
+" vim-quickrun {{{
+" \       'split' : '',
+let g:quickrun_config = {
+\   '_' : {
+\       'outputter/buffer/split' : ':botright 8sp',
+\       'outputter/buffer/close_on_empty' : 1,
+\       'hook/time/enable' : 1,
+\   }
+\}
 " }}}
 
 " file {{{
