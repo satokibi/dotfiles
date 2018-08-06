@@ -4,6 +4,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/neocomplcache.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
+Plug 'thinca/vim-quickrun'
 call plug#end()
 " }}}
 
