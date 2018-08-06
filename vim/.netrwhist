@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/yuya/workspace/fu'
-let g:netrw_dirhist_2='/Users/yuya/workspace'
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/yuya'
+let g:netrw_dirhist_2='/Users/yuya/dotfiles'
 let g:netrw_dirhist_3='/Users/yuya'
-let g:netrw_dirhist_4='/Users'
-let g:netrw_dirhist_5='/'
-let g:netrw_dirhist_6='/Users/yuya/workspace/fu/ad-network/kadai6/data/answer/q2/sub_f5'
+let g:netrw_dirhist_4='/Users/yuya/workspace'
+let g:netrw_dirhist_5='/Users/yuya/workspace/c'
+let g:netrw_dirhist_6='/Users/yuya/workspace'
+let g:netrw_dirhist_7='/Users/yuya'
+let g:netrw_dirhist_8='/Users/yuya/dotfiles'
