@@ -4,5 +4,9 @@
   "undef": true,    // var がついていない変数に警告
   "trailing": true, // 行末スペース禁止
   "laxcomma": true, // 前置カンマ禁止
-  "loopfunc": true  // ループの中で関数の定義禁止
+  "loopfunc": true,  // ループの中で関数の定義禁止
+  "globals": {
+    "window": true,
+    "document": true
+  }
 }
