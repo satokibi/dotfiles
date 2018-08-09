@@ -27,13 +27,9 @@ setopt auto_menu
 setopt correct
 SPROMPT="zsh: correct %F{red}'%R'%f -> %F{cyan}'%r'%f [nyae]? "
 
-
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
-
-
-
 
 # export PATH="your_parh:$PATH"
 export PATH="/usr/local/gcc-arm-none-eabi-5_4-2016q3/bin:$PATH"
