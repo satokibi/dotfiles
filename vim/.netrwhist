@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/vagrant/workspace/python/django/project_manager/employee'
 let g:netrw_dirhist_2='/home/vagrant/workspace/python/django/project_chat/app'
 let g:netrw_dirhist_3='/home/vagrant/workspace/python/django/project_manager/employee/templates/employee'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/home/vagrant/workspace/python/django/project_manager/emp
 let g:netrw_dirhist_6='/home/vagrant/workspace/python/django/project_manager/employee/templates/employee'
 let g:netrw_dirhist_7='/home/vagrant/dotfiles'
 let g:netrw_dirhist_8='/home/vagrant/dotfiles/vim/plugged/jedi-vim'
+let g:netrw_dirhist_9='/home/vagrant'

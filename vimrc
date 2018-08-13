@@ -6,7 +6,6 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
 Plug 'thinca/vim-quickrun'
 Plug 'KeitaNakamura/railscasts.vim'
-Plug 'davidhalter/jedi-vim'
 call plug#end()
 " }}}
 
@@ -46,10 +45,6 @@ let g:quickrun_config = {
 \       'hook/time/enable' : 1,
 \   }
 \}
-" }}}
-
-" jedi-vim {{{
-autocmd FileType python setlocal completeopt-=preview
 " }}}
 
 " netrw.vim {{{
