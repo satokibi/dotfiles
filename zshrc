@@ -38,3 +38,4 @@ export PATH="/opt/local/bin:$PATH"
 export PATH="$HOME/workspace/syuron/prefixspan-rel-1.3:$PATH"
 # for node.js
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
+
