@@ -133,10 +133,10 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 syntax enable
 " colorscheme slate
 " colorscheme iceberg
-colorscheme railscasts
+" colorscheme railscasts
 
-" set background=dark
-" colorscheme hybrid
+set background=dark
+colorscheme hybrid
 " }}}
 
 " status line color
