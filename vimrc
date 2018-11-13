@@ -1,10 +1,10 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'
-Plug 'Shougo/neocomplcache.vim'
+" Plug 'w0rp/ale'
+" Plug 'Shougo/neocomplcache.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
-Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-quickrun'
 Plug 'KeitaNakamura/railscasts.vim'
 call plug#end()
 " }}}
