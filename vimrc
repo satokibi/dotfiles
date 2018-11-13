@@ -12,7 +12,7 @@ call plug#end()
 " ale {{{
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 0
 let g:ale_linters = {
 \  'javascript': ['jshint'],
 \  'python': ['flake8'],
@@ -133,8 +133,12 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 syntax enable
 " colorscheme slate
 " colorscheme iceberg
-colorscheme railscasts
+" colorscheme railscasts
 
-" set background=dark
-" colorscheme hybrid
+set background=dark
+colorscheme hybrid
 " }}}
+
+" status line color
+highlight StatusLine ctermbg=gray ctermfg=black
+
