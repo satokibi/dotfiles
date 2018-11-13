@@ -6,6 +6,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
 " Plug 'thinca/vim-quickrun'
 Plug 'KeitaNakamura/railscasts.vim'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 " }}}
 
