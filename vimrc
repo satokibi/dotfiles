@@ -1,6 +1,6 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'Shougo/neocomplcache.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
@@ -10,13 +10,13 @@ call plug#end()
 " }}}
 
 " ale {{{
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_sign_column_always = 0
-let g:ale_linters = {
-\  'javascript': ['jshint'],
-\  'python': ['flake8'],
-\}
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_text_changed = 0
+" let g:ale_sign_column_always = 0
+" let g:ale_linters = {
+" \  'javascript': ['jshint'],
+" \  'python': ['flake8'],
+" \}
 " }}}
 
 " neocomplcache.vim {{{
