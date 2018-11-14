@@ -1,11 +1,12 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
 " Plug 'w0rp/ale'
-Plug 'Shougo/neocomplcache.vim'
+" Plug 'Shougo/neocomplcache.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
-Plug 'thinca/vim-quickrun'
+" Plug 'thinca/vim-quickrun'
 Plug 'KeitaNakamura/railscasts.vim'
+Plug 'digitaltoad/vim-pug'
 call plug#end()
 " }}}
 
@@ -133,10 +134,10 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 syntax enable
 " colorscheme slate
 " colorscheme iceberg
-colorscheme railscasts
+" colorscheme railscasts
 
-" set background=dark
-" colorscheme hybrid
+set background=dark
+colorscheme hybrid
 " }}}
 
 " status line color
