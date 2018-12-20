@@ -8,6 +8,10 @@
   *** https://github.com/junegunn/vim-plug
   * Usage
     - Download plug.vim and put it in .vim/autoload/ 
+        ###
+          curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        ###
     - Add a vim-plug section to ~/.vimrc 
     - example
       - call plug#begin('~/.vim/plugged')
@@ -16,15 +20,5 @@
   ************************************************************  
   * installed plugin
   ************************************************************  
-  - ale
-    - lint ってやつを入れていかないといけない
-      - javascript: jshint
-        - please install Node.js
-          - $ npm install -g jshint
-      - python : flake8
-        - pip install flake8
       
   ************************************************************  
-
-- git-prompt
-	-	for s_pc
