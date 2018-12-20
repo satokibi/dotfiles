@@ -3,9 +3,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Yggdroot/indentLine'
 Plug 'digitaltoad/vim-pug'
-
 Plug 'jpo/vim-railscasts-theme'
 Plug 'w0ng/vim-hybrid'
+Plug 'scrooloose/nerdtree'
+
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neoyank.vim'
 call plug#end()
 " }}}
 
@@ -25,6 +29,20 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 " }}}
 
+" NERDTree {{{
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" }}}
+
+
+" Unite {{{
+let g:unite_enable_start_insert=1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+" }}}
 
 
 " file {{{
