@@ -10,6 +10,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neoyank.vim'
+
+Plug 'posva/vim-vue'
 call plug#end()
 " }}}
 
