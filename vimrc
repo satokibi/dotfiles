@@ -12,6 +12,9 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neoyank.vim'
 
 Plug 'posva/vim-vue'
+Plug 'mattn/emmet-vim'
+
+Plug 'thinca/vim-quickrun'
 call plug#end()
 " }}}
 
@@ -33,6 +36,12 @@ let g:netrw_alto = 1
 
 " NERDTree {{{
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" }}}
+
+
+" QuickRun {{{
+set splitbelow "新しいウィンドウを下に開く
+set splitright "新しいウィンドウを右に開く
 " }}}
 
 
