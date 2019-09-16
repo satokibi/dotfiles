@@ -38,3 +38,6 @@ export PATH="/opt/local/bin:$PATH"
 # for node.js
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
+# for wget
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
