@@ -33,6 +33,14 @@ let g:netrw_alto = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " }}}
 
+" winresizer {{{
+let g:winresizer_start_key = '<C-i>'
+" }}}
+
+" vim-fugitive {{{
+set diffopt+=vertical
+" }}}
+
 
 " file {{{
 set fenc=utf-8
