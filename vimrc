@@ -9,6 +9,7 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'simeji/winresizer'
+Plug 'w0rp/ale'
 
 call plug#end()
 " }}}
@@ -41,6 +42,10 @@ let g:winresizer_start_key = '<C-i>'
 set diffopt+=vertical
 " }}}
 
+" ale {{{
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+" }}}
 
 " file {{{
 set fenc=utf-8
