@@ -6,6 +6,7 @@ Plug 'jpo/vim-railscasts-theme'
 Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 " }}}
