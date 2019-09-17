@@ -7,6 +7,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'simeji/winresizer'
 
 call plug#end()
 " }}}
