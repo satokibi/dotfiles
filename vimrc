@@ -10,6 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'simeji/winresizer'
 Plug 'w0rp/ale'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 
 call plug#end()
 " }}}
@@ -113,7 +115,8 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 
 syntax enable
 set background=dark
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme rupza
 " }}}
 
 " status line color
