@@ -10,8 +10,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'simeji/winresizer'
 Plug 'w0rp/ale'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
+Plug 'tpope/vim-surround'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 " }}}
