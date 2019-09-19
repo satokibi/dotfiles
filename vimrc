@@ -37,7 +37,7 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " }}}
 
 " winresizer {{{
-let g:winresizer_start_key = '<C-i>'
+let g:winresizer_start_key = '<C-k>'
 " }}}
 
 " vim-fugitive {{{
@@ -62,6 +62,7 @@ set hidden
 set showcmd
 
 set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
 set ambiwidth=double
 
 filetype on

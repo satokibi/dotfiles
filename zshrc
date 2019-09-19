@@ -41,3 +41,4 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 # for wget
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
+alias ctags="`brew --prefix`/bin/ctags"
