@@ -42,3 +42,5 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 alias ctags="`brew --prefix`/bin/ctags"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

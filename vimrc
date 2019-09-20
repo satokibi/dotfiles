@@ -115,6 +115,7 @@ set statusline+=%=
 
 set statusline+=[line=%l/%L]
 set laststatus=2
+set formatoptions-=ro
 " }}}
 
 " scheme {{{
