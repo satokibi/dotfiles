@@ -1,9 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
-DOT_FILES=(vimrc zshrc tmux.conf)
+CURRENT_DIR=$(cd $(dirname $0); pwd)
 
-for file in ${DOT_FILES[@]}
-do
-  echo setup .$file
-  ln -sf $HOME/dotfiles/$file $HOME/.$file
+DOT_DIR="dots"
+BIN_DIR="bin"
+
+echo "# init dotfiles"
+for file_dir in `\find ${CURRENT_DIR}/${DOT_DIR} -maxdepth 1 -type f`; do
+  file=$(basename $file_dir)
+  EXE="ln -sf ${CURRENT_DIR}/${DOT_DIR}/$file $HOME/.$file"
+  echo ${EXE}
+  ${EXE}
 done
+
+echo "# init scripts"
+for file_dir in `\find ${CURRENT_DIR}/${BIN_DIR} -maxdepth 1 -type f`; do
+  file=`basename $file_dir | cut -d . -f 1`
+  EXE="sudo ln -sf ${CURRENT_DIR}/${BIN_DIR}/${file}.sh /usr/local/bin/${file}"
+  echo ${EXE}
+  ${EXE}
+done
+
