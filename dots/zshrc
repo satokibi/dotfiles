@@ -30,6 +30,7 @@ SPROMPT="zsh: correct %F{red}'%R'%f -> %F{cyan}'%r'%f [nyae]? "
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
+alias ..='cd ..'
 
 
 # export PATH="your_parh:$PATH"
