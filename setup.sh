@@ -12,7 +12,7 @@ for file_dir in `\find ${CURRENT_DIR}/${DOT_DIR} -maxdepth 1 -type f`; do
   # シンボリックリンク -> .(ドット)つけて~に
   EXE="ln -sf ${CURRENT_DIR}/${DOT_DIR}/$file $HOME/.$file"
   echo ${EXE}
-  ${EXE}
+  # ${EXE}
 done
 
 echo "# setup bin"
@@ -22,6 +22,13 @@ for file_dir in `\find ${CURRENT_DIR}/${BIN_DIR} -maxdepth 1 -type f`; do
   # シンボリックリンク -> .shつけたやつを binに.shなしで
   EXE="sudo ln -sf ${CURRENT_DIR}/${BIN_DIR}/${file}.sh /usr/local/bin/${file}"
   echo ${EXE}
-  ${EXE}
+  # ${EXE}
 done
 
+# vim plug
+if test -e ${HOME}"/.vim/autoload/plug.vim"; then
+    echo "plug.vim is already installed."
+else
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
