@@ -12,7 +12,7 @@ for file_dir in `\find ${CURRENT_DIR}/${DOT_DIR} -maxdepth 1 -type f`; do
   # シンボリックリンク -> .(ドット)つけて~に
   EXE="ln -sf ${CURRENT_DIR}/${DOT_DIR}/$file $HOME/.$file"
   echo ${EXE}
-  # ${EXE}
+  ${EXE}
 done
 
 echo "# setup bin"
@@ -22,7 +22,7 @@ for file_dir in `\find ${CURRENT_DIR}/${BIN_DIR} -maxdepth 1 -type f`; do
   # シンボリックリンク -> .shつけたやつを binに.shなしで
   EXE="sudo ln -sf ${CURRENT_DIR}/${BIN_DIR}/${file}.sh /usr/local/bin/${file}"
   echo ${EXE}
-  # ${EXE}
+  ${EXE}
 done
 
 # vim plug
