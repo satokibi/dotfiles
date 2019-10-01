@@ -10,9 +10,7 @@ echo "# setup dotfiles"
 for file_dir in `\find ${CURRENT_DIR}/${DOT_DIR} -maxdepth 1 -type f`; do
   file=$(basename $file_dir)
   # シンボリックリンク -> .(ドット)つけて~に
-  EXE="ln -sf ${CURRENT_DIR}/${DOT_DIR}/$file $HOME/.$file"
-  echo ${EXE}
-  ${EXE}
+  ln -svf ${CURRENT_DIR}/${DOT_DIR}/$file $HOME/.$file
 done
 
 echo "# setup bin"
@@ -20,9 +18,7 @@ echo "# setup bin"
 for file_dir in `\find ${CURRENT_DIR}/${BIN_DIR} -maxdepth 1 -type f`; do
   file=`basename $file_dir | cut -d . -f 1`
   # シンボリックリンク -> .shつけたやつを binに.shなしで
-  EXE="sudo ln -sf ${CURRENT_DIR}/${BIN_DIR}/${file}.sh /usr/local/bin/${file}"
-  echo ${EXE}
-  ${EXE}
+  sudo ln -svf ${CURRENT_DIR}/${BIN_DIR}/${file}.sh /usr/local/bin/${file}
 done
 
 # vim plug
