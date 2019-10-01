@@ -1,7 +1,7 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdtree'
@@ -120,8 +120,9 @@ set formatoptions-=ro
 " }}}
 
 " US対応 {{{
-imap <c-j> <esc>
-vmap <c-j> <esc>
+inoremap <C-j> <esc>
+vnoremap <C-j> <esc>
+
 nnoremap ; :
 nnoremap : ;
 " }}}

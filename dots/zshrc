@@ -52,3 +52,6 @@ fga() {
     selected_files=$(echo "$modified_files" | fzf -m --preview 'git diff {}') &&
     git add $selected_files
 }
+
+
+bindkey "^j" vi-cmd-mode
