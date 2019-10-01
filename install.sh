@@ -10,12 +10,14 @@ if [ ! -d ${DOT_DIR} ]; then
   echo $(tput setaf 2)Download dotfiles complete!. ✔︎$(tput sgr0)
 fi
 
+
 BIN_DIR="${HOME}/bin"
 if [ ! -d ${BIN_DIR} ]; then
   mkdir ${BIN_DIR}
 fi
 
-# dotfiles
+
+# dotfiles たちを ln -s していく
 ${DOT_DIR}/etc/link.sh
 
 
@@ -28,7 +30,7 @@ else
 fi
 
 
-# OS別
+# OS別 の環境構築(またあんまりつくってない...(T_T) )
 if [ "$(uname)" == 'Darwin' ]; then
   ${DOT_DIR}/etc/init/osx.sh
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -39,3 +41,6 @@ else
   echo "Your platform ($(uname -a)) is not supported."
   exit 1
 fi
+
+
+
