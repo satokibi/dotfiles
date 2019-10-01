@@ -3,6 +3,8 @@
 DOT_DIR="${HOME}/dotfiles"
 REMOTE_URL="https://github.com/satokibi/dotfiles.git"
 
+
+# dotfilesフォルダをダウンロード
 if [ ! -d ${DOT_DIR} ]; then
   echo "Downloading dotfiles..."
   mkdir ${DOT_DIR}
@@ -11,6 +13,7 @@ if [ ! -d ${DOT_DIR} ]; then
 fi
 
 
+# 自作bin置き場作成
 BIN_DIR="${HOME}/bin"
 if [ ! -d ${BIN_DIR} ]; then
   mkdir ${BIN_DIR}
@@ -30,7 +33,7 @@ else
 fi
 
 
-# OS別 の環境構築(またあんまりつくってない...(T_T) )
+# OS別 の環境構築(まだあんまりつくってない...(T_T) )
 if [ "$(uname)" == 'Darwin' ]; then
   ${DOT_DIR}/etc/init/osx.sh
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
