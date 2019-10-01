@@ -50,6 +50,16 @@ set diffopt+=vertical
 let g:ale_lint_on_text_changed = 0
 " }}}
 
+
+" fzf {{{
+nnoremap <silent> ,f :Files
+nnoremap <silent> ,g :GFiles
+nnoremap <silent> ,b :Buffers
+nnoremap <silent> ,l :BLines
+nnoremap <silent> ,h :History
+nnoremap <silent> ,m :Mark
+" }}}
+
 " file {{{
 set fenc=utf-8
 set encoding=utf-8
