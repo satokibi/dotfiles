@@ -12,7 +12,8 @@ else
 fi
 
 if has "brew"; then
-  brew update && brew upgrade
+  # brew update && brew upgrade
+  echo "brew"
 fi
 
 list=(
