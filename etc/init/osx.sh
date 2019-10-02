@@ -10,3 +10,19 @@ else
   echo "Installing Homebrew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
+
+if has "brew"; then
+  brew update && brew upgrade
+fi
+
+list=(
+  git
+  zsh
+)
+
+for p in ${list[@]}
+do
+  echo $p
+done
+
+
