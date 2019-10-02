@@ -27,10 +27,12 @@ setopt auto_menu
 setopt correct
 SPROMPT="zsh: correct %F{red}'%R'%f -> %F{cyan}'%r'%f [nyae]? "
 
+alias ls='ls -G'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
+alias grep='grep -n --color=auto'
 alias gs='git status'
 
 
@@ -60,10 +62,23 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-fga() {
-    modified_files=$(git status --short | awk '{print $2}') &&
-    selected_files=$(echo "$modified_files" | fzf -m --preview 'git diff {}') &&
-    git add $selected_files
+
+fadd() {
+    local out q n addfiles
+    while out=$(
+        git status --short |
+            awk '{if (substr($0,2,1) !~ / /) print $2}' |
+            fzf-tmux --multi --exit-0 --expect=ctrl-d); do
+        q=$(head -1 <<< "$out")
+        n=$[$(wc -l <<< "$out") - 1]
+        addfiles=(`echo $(tail "-$n" <<< "$out")`)
+        [[ -z "$addfiles" ]] && continue
+        if [ "$q" = ctrl-d ]; then
+            git diff --color=always $addfiles | less -R
+        else
+            git add $addfiles
+        fi
+    done
 }
 
 # fzf + ag configuration
