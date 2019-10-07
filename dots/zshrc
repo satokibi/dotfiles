@@ -27,14 +27,28 @@ setopt auto_menu
 setopt correct
 SPROMPT="zsh: correct %F{red}'%R'%f -> %F{cyan}'%r'%f [nyae]? "
 
+alias ls='ls -G'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
 alias gs='git status -sb'
 alias g='cd $(ghq root)/$(ghq list | fzf)'
+alias grep='grep -n --color=auto'
 
 
+# 履歴ファイルの保存先
+export HISTFILE=${HOME}/.zsh_history
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=100000
+# 重複を記録しない
+setopt hist_ignore_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+
+# export PATH="your_parh:$PATH"
 
 # 自作binファイル
 export PATH="$HOME/bin:$PATH"
@@ -49,12 +63,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# fzf git add
-fga() {
-    modified_files=$(git status --short | awk '{print $2}') &&
-        selected_files=$(echo "$modified_files" | fzf -m --preview 'git diff {}') &&
-        git add $selected_files
-}
 
 # fzf git checkout branch
 fbr() {
@@ -74,6 +82,24 @@ jd() {
     fi
 }
 
+fadd() {
+    local out q n addfiles
+    while out=$(
+        git status --short |
+            awk '{if (substr($0,2,1) !~ / /) print $2}' |
+            fzf-tmux --multi --exit-0 --expect=ctrl-d); do
+        q=$(head -1 <<< "$out")
+        n=$[$(wc -l <<< "$out") - 1]
+        addfiles=(`echo $(tail "-$n" <<< "$out")`)
+        [[ -z "$addfiles" ]] && continue
+        if [ "$q" = ctrl-d ]; then
+            git diff --color=always $addfiles | less -R
+        else
+            git add $addfiles
+        fi
+    done
+}
+
 # fzf + ag configuration
 export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -84,10 +110,11 @@ export FZF_DEFAULT_OPTS='
 --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 '
 
-
 bindkey "^j" vi-cmd-mode
 
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# for z command
 source ~/.zsh.d/z.sh

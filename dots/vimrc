@@ -147,8 +147,7 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 
 syntax enable
 set background=dark
-" colorscheme hybrid
-colorscheme rupza
+colorscheme hybrid
 " }}}
 
 " status line color
