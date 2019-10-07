@@ -31,6 +31,8 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
+alias gs='git status -sb'
+alias g='cd $(ghq root)/$(ghq list | fzf)'
 
 
 
