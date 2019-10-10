@@ -94,6 +94,8 @@ augroup END
 " search {{{
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 " }}}
 
 
@@ -139,7 +141,7 @@ autocmd ColorScheme * highlight LineNr ctermbg=none
 
 syntax enable
 set background=dark
-colorscheme hybrid
+colorscheme rupza
 " }}}
 
 " status line color
