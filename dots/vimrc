@@ -4,27 +4,20 @@ let mapleader = "\<Space>"
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'Yggdroot/indentLine'
-Plug 'jpo/vim-railscasts-theme'
-Plug 'w0ng/vim-hybrid'
 Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'simeji/winresizer'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-surround'
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
+
+" vim-lsp {{{
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" }}}
 
 call plug#end()
 " }}}
 
-
-" indentLine {{{
-let g:indentLine_color_term = 244
-let g:indentLine_char = '¦'
-" }}}
 
 " NERDTree {{{
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
@@ -36,23 +29,35 @@ let g:NERDTreeQuitOnOpen = 1
 let g:winresizer_start_key = '<C-k>'
 " }}}
 
-" vim-fugitive {{{
-set diffopt+=vertical
+
+" vim-lsp {{{
+let g:lsp_diagnostics_enabled = 0
+" debug
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+    " python-language-server {{{
+    if executable('pyls')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'pyls',
+            \ 'cmd': {server_info->['pyls']},
+            \ 'whitelist': ['python'],
+            \ })
+    endif
+    " }}}
+
 " }}}
 
-" ale {{{
-" 保存時のみ実行する
-let g:ale_lint_on_text_changed = 0
-" }}}
 
 " fzf {{{
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :GFiles<CR>
-nnoremap <silent> <leader>G :GFiles?<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>l :BLines<CR>
-nnoremap <silent> <leader>h :History<CR>
-nnoremap <silent> <leader>m :Mark<CR>
+" nnoremap <silent> <leader>f :Files<CR>
+" nnoremap <silent> <leader>g :GFiles<CR>
+" nnoremap <silent> <leader>G :GFiles?<CR>
+" nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <leader>l :BLines<CR>
+" nnoremap <silent> <leader>h :History<CR>
+" nnoremap <silent> <leader>m :Mark<CR>
 " }}}
 
 " file {{{
@@ -136,14 +141,11 @@ nnoremap : ;
 
 
 " scheme {{{
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
 
-syntax enable
-set background=dark
-colorscheme rupza
 " }}}
 
 " status line color
-highlight StatusLine ctermbg=gray ctermfg=black
+" highlight StatusLine ctermbg=gray ctermfg=black
 
