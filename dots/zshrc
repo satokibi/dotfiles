@@ -116,5 +116,4 @@ bindkey "^j" vi-cmd-mode
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# for z command
-source ~/.zsh.d/z.sh
+export PATH=/usr/local/bin:$PATH

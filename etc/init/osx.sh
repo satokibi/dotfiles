@@ -16,14 +16,20 @@ if has "brew"; then
   echo "brew"
 fi
 
+# brewでinstallしたいやつ
 list=(
   git
   zsh
+  tmux
+  lua
+  vim
+  fzf
+  ghq
+  cask
 )
 
 for p in ${list[@]}
 do
-  echo $p
+  echo "install $p"
+  brew install $p
 done
-
-
