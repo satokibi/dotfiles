@@ -100,8 +100,25 @@ fadd() {
     done
 }
 
+# fzfとghq
+fgh() {
+    select=`ghq list --full-path | fzf`
+    if [ -n "$select" ] ; then
+        cd $select
+    fi
+    echo $select
+}
+
+# fd - cd to selected directory
+cdd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
 # fzf + ag configuration
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+export FZF_DEFAULT_COMMAND='find * -type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='
