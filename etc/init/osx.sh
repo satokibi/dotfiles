@@ -26,6 +26,7 @@ list=(
   fzf
   ghq
   cask
+  go
 )
 
 for p in ${list[@]}
@@ -33,3 +34,11 @@ do
   echo "install $p"
   brew install $p
 done
+
+
+# install go tools
+go get golang.org/x/tools/cmd/goimports
+
+
+# install npm
+mkdir -p ~/.nodebrew/src

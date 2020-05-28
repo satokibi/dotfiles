@@ -7,6 +7,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'simeji/winresizer'
+Plug 'udalov/kotlin-vim'
 
 " vim-lsp {{{
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -16,9 +17,10 @@ Plug 'simeji/winresizer'
 " vim-lsp {{{
     Plug 'prabirshrestha/async.vim'
     Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'mattn/vim-lsp-settings'
+    Plug 'mattn/vim-goimports'
 " }}}
 
 call plug#end()

@@ -135,3 +135,8 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+
+# java
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export PATH="${JAVA_HOME}:${PATH}"
