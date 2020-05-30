@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'simeji/winresizer'
 Plug 'udalov/kotlin-vim'
+Plug 'thinca/vim-quickrun'
 
 " vim-lsp {{{
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -56,6 +57,13 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>l :BLines<CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>m :Mark<CR>
+" }}}
+
+
+" quickRun {{{
+let g:quickrun_config={'*': {'split': 'vertical'}}
+set splitright
+nnoremap <buffer> <silent> <Leader>t :<C-u>QuickRun<CR>
 " }}}
 
 " file {{{
