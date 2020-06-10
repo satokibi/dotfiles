@@ -22,6 +22,7 @@ Plug 'thinca/vim-quickrun'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'mattn/vim-lsp-settings'
     Plug 'mattn/vim-goimports'
+    Plug 'tpope/vim-fugitive'
 " }}}
 
 call plug#end()
