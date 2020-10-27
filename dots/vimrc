@@ -18,27 +18,32 @@ call plug#end()
 
 colorscheme nord
 
+
 " 各プライグイン用 .vim
 runtime! settings/plugin-config/*.vim
+
 
 " file
 set fenc=utf-8
 set encoding=utf-8
 scriptencoding utf-8
-
 set nobackup
 set noswapfile
 set noundofile
 set autoread
 set hidden
 set showcmd
-
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 set ambiwidth=double
-
 filetype on
 filetype indent on
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.sh setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 
 " tab indent
@@ -48,17 +53,37 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 
-augroup fileTypeIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.sh setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
 
 " search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+
+" statusline
+set statusline=%f               " filename relative to current $PWD
+set statusline+=%h              " help file flag
+set statusline+=%m              " modified flag
+set statusline+=%r              " readonly flag
+set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
+set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
+set statusline+=%=
+set statusline+=[line=%l/%L]
+set laststatus=2
+set formatoptions-=ro
+
+
+" color
+hi Visual  ctermbg=236
+hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+" Change popup menu color for non selected items
+hi Pmenu ctermfg=lightgray ctermbg=darkgray 
+" Change popup menu color for selected item
+hi PmenuSel ctermfg=25 ctermbg=lightgray
+" 左のアイコンの色設定
+hi CocErrorSign ctermfg=196 ctermbg=NONE
+hi CocWarningSign ctermfg=172 ctermbg=NONE
 
 
 " other
@@ -71,27 +96,6 @@ set wildmenu
 set visualbell
 set showmatch
 set wildmode=list:longest
-
-highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
-" Change popup menu color for non selected items
-highlight Pmenu ctermfg=lightgray ctermbg=darkgray 
-" Change popup menu color for selected item
-highlight PmenuSel ctermfg=25 ctermbg=lightgray
-" 左のアイコンの色設定
-highlight CocErrorSign ctermfg=196 ctermbg=NONE
-highlight CocWarningSign ctermfg=172 ctermbg=NONE
-
-set statusline=%f               " filename relative to current $PWD
-set statusline+=%h              " help file flag
-set statusline+=%m              " modified flag
-set statusline+=%r              " readonly flag
-set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
-set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
-set statusline+=%=
-
-set statusline+=[line=%l/%L]
-set laststatus=2
-set formatoptions-=ro
 
 inoremap <C-j> <esc>
 vnoremap <C-j> <esc>
