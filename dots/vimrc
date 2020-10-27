@@ -1,33 +1,33 @@
+
 let mapleader = "\<Space>"
 
 
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
-Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'scrooloose/nerdtree'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'simeji/winresizer'
-Plug 'udalov/kotlin-vim'
 Plug 'thinca/vim-quickrun'
 
-" vim-lsp {{{
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+" vim-fzf {{{
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " }}}
 
-" vim-lsp {{{
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'mattn/vim-goimports'
-    Plug 'tpope/vim-fugitive'
-" }}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'udalov/kotlin-vim'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
+
+" for csv
+Plug 'mechatroner/rainbow_csv'
 
 call plug#end()
 " }}}
 
+
+
+colorscheme nord
 
 " NERDTree {{{
 nnoremap <silent><C-n> :NERDTreeToggle<CR>
@@ -40,16 +40,6 @@ let g:winresizer_start_key = '<C-k>'
 " }}}
 
 
-" vim-lsp {{{
-let g:lsp_diagnostics_enabled = 0
-" debug
-" let g:lsp_log_verbose = 1
-" let g:lsp_log_file = expand('~/vim-lsp.log')
-" let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-nnoremap <silent> <C-i> :LspDefinition<cr>
-" }}}
-
-
 " fzf {{{
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :GFiles<CR>
@@ -58,8 +48,107 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>l :BLines<CR>
 nnoremap <silent> <leader>h :History<CR>
 nnoremap <silent> <leader>m :Mark<CR>
+nnoremap <silent> <leader>r :Rg<CR>
 " }}}
 
+let g:gitgutter_override_sign_column_highlight = 0
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
+highlight GitGutterChangeDelete ctermfg=4
+
+" coc.vim {{{
+  "" TextEdit might fail if hidden is not set.
+  set hidden
+
+  " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+  " delays and poor user experience.
+  set updatetime=300
+
+  " Don't pass messages to |ins-completion-menu|.
+  set shortmess+=c
+
+  " Always show the signcolumn, otherwise it would shift the text each time
+  " diagnostics appear/become resolved.
+  if has("patch-8.1.1564")
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
+  else
+    set signcolumn=yes
+  endif
+
+  " Make <CR> auto-select the first completion item and notify coc.nvim to
+  " format on enter, <cr> could be remapped by other vim plugin
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+  " Use `[g` and `]g` to navigate diagnostics
+  " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  " GoTo code navigation.
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
+    else
+      execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+  endfunction
+
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Formatting selected code.
+  xmap <leader>l  <Plug>(coc-format-selected)
+  nmap <leader>l  <Plug>(coc-format-selected)
+
+  augroup mygroup
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup end
+
+  " Applying codeAction to the selected region.
+  " Example: `<leader>aap` for current paragraph
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+  " Add `:Format` command to format current buffer.
+  command! -nargs=0 Format :call CocAction('format')
+
+  " Add (Neo)Vim's native statusline support.
+  " NOTE: Please see `:h coc-status` for integrations with external plugins that
+  " provide custom statusline: lightline.vim, vim-airline.
+  "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+  " Mappings for CoCList
+  " Show all diagnostics.
+  nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+  " Manage extensions.
+  nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+  " Show commands.
+  nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+  " Find symbol of current document.
+  nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+  " Search workspace symbols.
+  nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+  " Resume latest coc list.
+  nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" }}}
 
 " quickRun {{{
 let g:quickrun_config={'*': {'split': 'vertical'}}
@@ -116,6 +205,7 @@ set title
 set number
 set noruler
 set cursorline
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 set clipboard=unnamed
 
 set wildmenu
@@ -124,6 +214,13 @@ set visualbell
 set showmatch
 set wildmode=list:longest
 
+" Change popup menu color for non selected items
+highlight Pmenu ctermfg=lightgray ctermbg=darkgray 
+" Change popup menu color for selected item
+highlight PmenuSel ctermfg=25 ctermbg=lightgray
+" 左のアイコンの色設定
+highlight CocErrorSign ctermfg=196 ctermbg=NONE
+highlight CocWarningSign ctermfg=172 ctermbg=NONE
 
 set statusline=%f               " filename relative to current $PWD
 set statusline+=%h              " help file flag
@@ -145,14 +242,3 @@ vnoremap <C-j> <esc>
 nnoremap ; :
 nnoremap : ;
 " }}}
-
-
-" scheme {{{
-" autocmd ColorScheme * highlight Normal ctermbg=none
-" autocmd ColorScheme * highlight LineNr ctermbg=none
-
-" }}}
-
-" status line color
-" highlight StatusLine ctermbg=gray ctermfg=black
-

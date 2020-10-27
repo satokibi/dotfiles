@@ -32,9 +32,14 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
-alias gs='git status -sb'
-alias g='cd $(ghq root)/$(ghq list | fzf)'
+alias gs='git status'
+alias gb='git branch'
+alias gd='git diff'
+# alias g='cd $(ghq root)/$(ghq list | fzf)'
 alias grep='grep -n --color=auto'
+alias lg='lazygit'
+
+alias jenkins="aws ssm start-session --target i-0b81bcebccc2239b6"
 
 
 # 履歴ファイルの保存先
@@ -65,24 +70,14 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 
 # fzf git checkout branch
-fbr() {
+gco() {
     local branches branch
     branches=$(git branch -vv) &&
         branch=$(echo "$branches" | fzf +m) &&
         git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# fzr jumb directory
-jd() {
-    local res=$(z | sort -rn | cut -c 12- | fzf)
-    if [ -n "$res" ]; then
-        cd $res
-    else
-        return 1
-    fi
-}
-
-fadd() {
+ga() {
     local out q n addfiles
     while out=$(
         git status --short |
@@ -110,7 +105,7 @@ fgh() {
 }
 
 # fd - cd to selected directory
-cdd() {
+jd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
@@ -140,3 +135,11 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # java
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export PATH="${JAVA_HOME}:${PATH}"
+
+export PATH=$PATH:/Users/s09104/Library/Python/3.7/bin
+
+
+# for google api
+export GOOGLE_APPLICATION_CREDENTIALS="credentials.json"
+
+
