@@ -1,14 +1,34 @@
 [user]
-	name = yuucu
-	email = yuucu.sub@gmail.com
+	name = higuchi-yuya-ab
+	email = higuchi_yuya@applibot.co.jp
 [core]
 	editor = vim
 	autoCRLF = false
 	ignorecase = false
 	quotepath = false
+	excludesfile = /Users/s09104/.gitignore_global
 [color]
 	ui = true
 [alias]
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 [ghq]
     root = ~/workspace/.ghq/
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/s09104/.stCommitMsg
+[alias]
+  g = git
+  b = branch
+  c = commit
+  d = diff
+  st = status
+  co = checkout
+  newbr = checkout -b
+  conflicts = !git ls-files -u | cut -f 2 | sort -u
+[pull]
+	rebase = false

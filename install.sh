@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOT_DIR="${HOME}/dotfiles"
-REMOTE_URL="https://github.com/yuucu/dotfiles.git"
+REMOTE_URL="https://github.com/yuucu/dotfiles-old.git"
 
 
 # dotfilesフォルダをダウンロード

@@ -71,7 +71,7 @@ nnoremap <Space>K :<C-u>action GotoDeclaration<CR>
 nnoremap <Space>k :<C-u>action GotoTypeDeclaration<CR>
 nnoremap gi :<C-u>action GotoImplementation<CR>
 nnoremap gs :<C-u>action GotoSuperMethod<CR>
-nnoremap gt :<C-u>action GotoTest<CR>
+" nnoremap gt :<C-u>action GotoTest<CR>
 nnoremap <C-k> :<C-u>action ShowUsages<CR>
 
 nnoremap <Space>a :<C-u>action GotoAction<CR>
@@ -98,7 +98,7 @@ nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
 nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
 
 " 開いているクラス実行
-command RunClass action RunClass
+command Run action RunClass
 " 現在開いているTab以外閉じる
 command Close action CloseAllEditorsButActive
 
