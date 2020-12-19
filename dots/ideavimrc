@@ -98,7 +98,7 @@ nnoremap <Space>P :<C-u>action ManageRecentProjects<CR>
 nnoremap <Space>b :<C-u>action ToggleLineBreakpoint<CR>
 
 " 開いているクラス実行
-command RunClass action RunClass
+command Run action RunClass
 " 現在開いているTab以外閉じる
 command Close action CloseAllEditorsButActive
 

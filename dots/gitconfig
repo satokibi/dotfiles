@@ -30,3 +30,5 @@
   co = checkout
   newbr = checkout -b
   conflicts = !git ls-files -u | cut -f 2 | sort -u
+[pull]
+	rebase = false

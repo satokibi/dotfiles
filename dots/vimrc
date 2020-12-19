@@ -9,19 +9,32 @@ Plug 'thinca/vim-quickrun'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'airblade/vim-gitgutter'
 Plug 'mechatroner/rainbow_csv'
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'tpope/vim-fugitive'
 Plug 'arcticicestudio/nord-vim'
+
+Plug 'mattn/vim-goimports'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'rust-lang/rust.vim'
+
 Plug 'udalov/kotlin-vim'
+Plug 'othree/yajs.vim'
 call plug#end()
 
 colorscheme nord
 
-
 " 各プライグイン用 .vim
 runtime! settings/plugin-config/*.vim
+let g:rustfmt_autosave = 1
 
+let g:mkdp_refresh_slow = 1
+let g:mkdp_command_for_global = 1
 
 " file
 set fenc=utf-8
@@ -43,14 +56,15 @@ augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.py setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.sh setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 
 " tab indent
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 
 
@@ -104,3 +118,14 @@ vnoremap <C-j> <esc>
 " US対応
 nnoremap ; :
 nnoremap : ;
+
+
+au BufRead,BufNewFile *.kt  set filetype=kotlin
+au BufRead,BufNewFile *.jet set filetype=kotlin
+au Syntax kotlin source ~/.vim/syntax/kotlin.vim
+hi Number ctermfg=darkred 
+hi Identifier ctermfg=darkred 
+hi Boolean ctermfg=darkred 
+hi Constant ctermfg=darkred
+
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
